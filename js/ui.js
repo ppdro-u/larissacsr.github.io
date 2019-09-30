@@ -3,5 +3,5 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems);
 });
 
-$('#textarea1').val('Novo Texto');
-  M.textareaAutoResize($('#textarea1'));
+// $('#textarea1').val('Novo Texto');
+// M.textareaAutoResize($('#textarea1'));
