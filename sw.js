@@ -1,5 +1,6 @@
+//1
 const staticCacheName = 'site-static';
-
+//1
 const recursos = [
 	'/',
 	'/index.html',
@@ -11,7 +12,7 @@ const recursos = [
 	'/img/Red-Velvet-Cake-8.jpg',
 	'/img/Cheesecake.jpg',
 ];
-
+//1
 self.addEventListener('install', evt => {
 	// console.log('Service worker foi instalado.');
 	evt.waitUntil(
@@ -20,13 +21,21 @@ self.addEventListener('install', evt => {
 			cache.addAll(recursos);
 		})
 	);
+
 });
 
 self.addEventListener('activate', evt => {
 	console.log('Service worker foi ativado.');
 });
 
+//2
 self.addEventListener('fetch', evt => {
-	console.log('Service worker capturou um evento do tipo fetch.');
+	// console.log('Service worker capturou um evento do tipo fetch.');
+	evt.respondWith(
+		caches.match(evt.request).then(cacheRes =>{
+			return cacheRes || fetch(evt.request);
+		})
+	)
+
 });
 
