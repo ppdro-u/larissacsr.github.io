@@ -38,9 +38,9 @@ self.addEventListener('install', evt => {
   );
 });
 
-// activate event
+// evento de ativação
 self.addEventListener('activate', evt => {
-  //console.log('service worker activated');
+  //console.log('service worker ativado');
   evt.waitUntil(
     caches.keys().then(keys => {
       //console.log(keys);
@@ -52,7 +52,7 @@ self.addEventListener('activate', evt => {
   );
 });
 
-// fetch event
+// evento de fetch
 self.addEventListener('fetch', evt => {
   //console.log('fetch event', evt);
   evt.respondWith(
@@ -60,7 +60,7 @@ self.addEventListener('fetch', evt => {
       return cacheRes || fetch(evt.request).then(fetchRes => {
         return caches.open(dynamicCacheName).then(cache => {
           cache.put(evt.request.url, fetchRes.clone());
-          // check cached items size
+          //checar tamanho dos itens de cache
           limitCacheSize(dynamicCacheName, 15);
           return fetchRes;
         })
