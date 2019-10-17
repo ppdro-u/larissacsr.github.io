@@ -65,11 +65,14 @@ self.addEventListener('fetch', evt => {
                 return caches.open(dynamicCacheName).then(cache => {
                     cache.put(evt.request.url, fetchRes.clone());
                     //checar tamanho dos itens de cache
-                    limitCacheSize(dynamicCacheName, 15);
+                    limitCacheSize(dynamicCacheName, 1);
                     return fetchRes;
                 })
             });
         }).catch(() => {
+        	//se pagina nao foi encontrada em cache
+        	//e nao ha rede para obter essa pg
+        	//devolva a pagina de fallback
             if (evt.request.url.indexOf('.html') > -1) {
                 return caches.match('/pages/fallback.html');
             }
