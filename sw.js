@@ -40,7 +40,7 @@ self.addEventListener('install', evt => {
 
 // evento de ativação
 self.addEventListener('activate', evt => {
-    //console.log('service worker ativado');
+    console.log('service worker ativado');
     //como o evento de instalação pode ter sido tao rápido que não deu tempo fazer cache -> usamos o waitUntil, que aguarda até a promise tenha sido concretizada para instalar o sw
     evt.waitUntil(
         caches.keys().then(keys => {
