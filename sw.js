@@ -32,7 +32,7 @@ self.addEventListener('install', evt => {
     //console.log('service worker instalado');
     evt.waitUntil(
         caches.open(staticCacheName).then((cache) => {
-            console.log('caching shell assets');
+            console.log('Fazendo caching de recursos');
             cache.addAll(assets);
         })
     );
@@ -81,7 +81,7 @@ self.addEventListener('install', evt => {
     // console.log('Service worker foi instalado.');
     evt.waitUntil(
         caches.open(staticCacheName).then((cache) => {
-            console.log('caching shell assets');
+            console.log('Fazendo caching de recursos');
             cache.addAll(assets);
         })
     );
