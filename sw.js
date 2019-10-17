@@ -55,7 +55,7 @@ self.addEventListener('activate', evt => {
 
 // evento de fetch
 self.addEventListener('fetch', evt => {
-	console.log("YEEEEEEEEEEEEEY");
+	// console.log("YEEEEEEEEEEEEEY");
     //console.log('fetch event', evt);
     //respondWith previne que o browser tente responder à requisição e permite-nos prover uma resposta personalizada à requisição (por exemplo, fornecer um recurso que colocamos em cache)
     evt.respondWith(
