@@ -1,5 +1,5 @@
 // real-time listener que verifica as mudanças que ocorrem
-db.collection('recipes').onSnapshot(snapshot => {
+db.collection('sobremesas').onSnapshot(snapshot => {
   //console.log(snapshot.docChanges());
   snapshot.docChanges().forEach(change => {
     //console.log(change.type, change.doc.id, change.doc.data());
