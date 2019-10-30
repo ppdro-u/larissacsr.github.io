@@ -14,7 +14,7 @@ const renderRecipe = (data, id) => {
   <div class="col s12 m6 l3 sobremesa" data-id="${id}">
 	    <div class="card" style="background-color: #A59C94FF;">
 		    <div class="card-image sobremesa-imagem">
-	            <img src="${data.endereco_imagem}">
+	            <img src="../img/cup_cake-512.png">
 	            <span class="card-title sobremesa-titulo">"${data.nome}"</span>
 	        </div>
 	        <div class="card-content sobremesa-descricao">
