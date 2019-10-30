@@ -21,7 +21,7 @@ const renderRecipe = (data, id) => {
 	            <p>"${data.descricao}"</p>
 	        </div>
 	        <div class="card-action">
-		        <a style="color: #AE0E36FF;" class="sobremesa-link" href="${sobremesa.link}">Saiba mais</a>
+		        <a style="color: #AE0E36FF;" class="sobremesa-link" href="${data.link}">Saiba mais</a>
 	        </div>
 	        <div class="sobremesa-deletar">
                 <i class="material-icons" data-id="${id}">delete_outline</i>
