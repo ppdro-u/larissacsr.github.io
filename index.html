@@ -58,7 +58,6 @@
                     <div class="card-image">
                         <img src="img/2810845dae5561a91562998ba4cf8939.jpg">
                         <span class="card-title">Brownie</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>Chocolate Meio-Amargo e Castanha de Caju</p>
@@ -68,12 +67,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12 m6 l3">
+            <!-- <div class="col s12 m6 l3">
                 <div class="card" style="background-color: #A59C94FF;">
                     <div class="card-image">
                         <img src="img/Red-Velvet-Cake-8.jpg">
                         <span class="card-title">Red Velvet</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>Bolo de chocolate com cobertura de Buttercream</p>
@@ -88,7 +86,6 @@
                     <div class="card-image">
                         <img src="img/Cheesecake.jpg">
                         <span class="card-title">Cheesecake</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>It's a piece of Cheese...cake!</p>
@@ -97,12 +94,35 @@
                         <a style="color: #AE0E36FF;" href="#">Saiba mais</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- esse é o fim do row -->
-    <!--JavaScript at end of body for optimized loading-->
+    
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script><!--aqui!!-->
+    
+    <!-- verificar se está na posição correta -->
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDGlxdWY0E3PdT6u050TJDTzHJ7UiFErGg",
+        authDomain: "des-bonbons-dcc35.firebaseapp.com",
+        databaseURL: "https://des-bonbons-dcc35.firebaseio.com",
+        projectId: "des-bonbons-dcc35",
+        storageBucket: "des-bonbons-dcc35.appspot.com",
+        messagingSenderId: "972950448934",
+        appId: "1:972950448934:web:db59a364fff753dbd22fe7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(); 
+    //aqui!!
+    </script>
+
     <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/db.js"></script>
     <script type="text/javascript" src="./js/materialize.min.js"></script>
     <script type="text/javascript" src="./js/ui.js"></script>
 </body>

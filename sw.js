@@ -58,26 +58,27 @@ self.addEventListener('fetch', evt => {
 	// console.log("YEEEEEEEEEEEEEY");
     //console.log('fetch event', evt);
     //respondWith previne que o browser tente responder à requisição e permite-nos prover uma resposta personalizada à requisição (por exemplo, fornecer um recurso que colocamos em cache)
-    evt.respondWith(
-        caches.match(evt.request).then(cacheRes => {
-            return cacheRes || fetch(evt.request).then(fetchRes => {
-            	//aproveita que o servidor respondeu e armazena a resposta em um cache dinâmico
-                return caches.open(dynamicCacheName).then(cache => {
-                    cache.put(evt.request.url, fetchRes.clone());
-                    //checar tamanho dos itens de cache
-                    limitCacheSize(dynamicCacheName, 15);
-                    return fetchRes;
-                })
-            });
-        }).catch(() => {
-        	//se pagina nao foi encontrada em cache
-        	//e nao ha rede para obter essa pg
-        	//devolva a pagina de fallback
-            if (evt.request.url.indexOf('.html') > -1) {
-                return caches.match('/pages/fallback.html');
-            }
-        })
-    );
+    //AQUI!!!
+    // evt.respondWith(
+    //     caches.match(evt.request).then(cacheRes => {
+    //         return cacheRes || fetch(evt.request).then(fetchRes => {
+    //         	//aproveita que o servidor respondeu e armazena a resposta em um cache dinâmico
+    //             return caches.open(dynamicCacheName).then(cache => {
+    //                 cache.put(evt.request.url, fetchRes.clone());
+    //                 //checar tamanho dos itens de cache
+    //                 limitCacheSize(dynamicCacheName, 15);
+    //                 return fetchRes;
+    //             })
+    //         });
+    //     }).catch(() => {
+    //     	//se pagina nao foi encontrada em cache
+    //     	//e nao ha rede para obter essa pg
+    //     	//devolva a pagina de fallback
+    //         if (evt.request.url.indexOf('.html') > -1) {
+    //             return caches.match('/pages/fallback.html');
+    //         }
+    //     })
+    // );
 });
 //1
 self.addEventListener('install', evt => {
