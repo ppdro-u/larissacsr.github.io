@@ -3,6 +3,10 @@ const sobremesas = document.querySelector('.sobremesas');
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
+
+	// formulario de adicionar sobremesa
+	  const forms = document.querySelectorAll('.side-form');
+	  M.Sidenav.init(forms, {edge: 'left'});
 });
 
 // $('#textarea1').val('Novo Texto');
