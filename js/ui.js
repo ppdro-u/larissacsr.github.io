@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems);
 
 	// formulario de adicionar sobremesa
-	  const forms = document.querySelectorAll('.side-form');
-	  M.Sidenav.init(forms, {edge: 'left'});
+	const forms = document.querySelectorAll('.side-form');
+	var instances2 = M.Sidenav.init(forms);
 });
 
 // $('#textarea1').val('Novo Texto');
