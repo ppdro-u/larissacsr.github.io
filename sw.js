@@ -1,7 +1,7 @@
 //recursos basicos necessarios pro site funcionar
-const staticCacheName = 'site-static-v2';
+const staticCacheName = 'site-static-v3';
 //recursos que sao armazenados na medida que o usuario ira utilizar o sistema
-const dynamicCacheName = 'site-dynamic-v1';
+const dynamicCacheName = 'site-dynamic-v2';
 //aqui ficam os endereços de requisicao para recursos que você quer fazer cache
 const assets = [
     '/',
@@ -55,30 +55,33 @@ self.addEventListener('activate', evt => {
 
 // evento de fetch
 self.addEventListener('fetch', evt => {
-	// console.log("YEEEEEEEEEEEEEY");
-    //console.log('fetch event', evt);
     //respondWith previne que o browser tente responder à requisição e permite-nos prover uma resposta personalizada à requisição (por exemplo, fornecer um recurso que colocamos em cache)
     //AQUI!!!
-    // evt.respondWith(
-    //     caches.match(evt.request).then(cacheRes => {
-    //         return cacheRes || fetch(evt.request).then(fetchRes => {
-    //         	//aproveita que o servidor respondeu e armazena a resposta em um cache dinâmico
-    //             return caches.open(dynamicCacheName).then(cache => {
-    //                 cache.put(evt.request.url, fetchRes.clone());
-    //                 //checar tamanho dos itens de cache
-    //                 limitCacheSize(dynamicCacheName, 15);
-    //                 return fetchRes;
-    //             })
-    //         });
-    //     }).catch(() => {
-    //     	//se pagina nao foi encontrada em cache
-    //     	//e nao ha rede para obter essa pg
-    //     	//devolva a pagina de fallback
-    //         if (evt.request.url.indexOf('.html') > -1) {
-    //             return caches.match('/pages/fallback.html');
-    //         }
-    //     })
-    // );
+    //com o desvio condicional abaixo, temos certeza que, não vamos executar esse código se a requisição que estivermos fazendo for à api do google.
+    //ou seja, se a request não for pro google, executamos o código de pesquisar no cache
+    //se a request for pro google, não executamos o código para pesquisar no cache, pegamos tudo do google
+    if (evt.request.url.indexOf('firestore.googleapis.com') === -1) {
+        evt.respondWith(
+            caches.match(evt.request).then(cacheRes => {
+                return cacheRes || fetch(evt.request).then(fetchRes => {
+                    //aproveita que o servidor respondeu e armazena a resposta em um cache dinâmico
+                    return caches.open(dynamicCacheName).then(cache => {
+                        cache.put(evt.request.url, fetchRes.clone());
+                        //checar tamanho dos itens de cache
+                        limitCacheSize(dynamicCacheName, 15);
+                        return fetchRes;
+                    })
+                });
+            }).catch(() => {
+                //se pagina nao foi encontrada em cache
+                //e nao ha rede para obter essa pg
+                //devolva a pagina de fallback
+                if (evt.request.url.indexOf('.html') > -1) {
+                    return caches.match('/pages/fallback.html');
+                }
+            })
+        );
+    }
 });
 //1
 self.addEventListener('install', evt => {
