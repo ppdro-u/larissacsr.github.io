@@ -30,7 +30,7 @@ form.addEventListener('submit', evt => {
         nome: form.sobremesaTitulo.value,
         descricao: form.sobremesaDescricao.value,
         link: form.sobremesaLink.value,
-        endereco_imagem: 'teste.com',
+        endereco_imagem: 'teste.com'
     };
 
     db.collection('sobremesas').add(sobremesa)
