@@ -2,11 +2,11 @@ const sobremesas = document.querySelector('.sobremesas');
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
+    var instances = M.Sidenav.init(elems, {edge:'left'});
 
 	// formulario de adicionar sobremesa
 	const forms = document.querySelectorAll('.side-form');
-	var instances2 = M.Sidenav.init(forms);
+	var instances2 = M.Sidenav.init(forms, {edge:'right'});
 });
 
 // $('#textarea1').val('Novo Texto');
