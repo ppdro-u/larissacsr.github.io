@@ -22,31 +22,6 @@ db.collection('sobremesas').onSnapshot(snapshot => {
     });
 });
 
-
-<div id="side-form" class="sidenav side-form">
-    <form class="adiciona-sobremesa container section">
-      <h6 >Nova Sobremesa</h6>
-      <div class="divider"></div>
-      <div class="input-field">
-        <input placeholder="ex. Brownie com Doce de leite" id="sobremesa-titulo" type="text" class="validate">
-        <label for="sobremesa-titulo">Título da Sobremesa</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="Massa de chocolate meio-amargo e doce de leite argentino" id="sobremesa-descricao" type="text" class="validate">
-        <label for="sobremesa-descricao">Descrição da Sobremesa</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="Coloque aqui um link que fale da sobremesa" id="sobremesa-link" type="text" class="validate">
-        <label for="sobremesa-link">Link da Sobremesa</label>
-      </div>
-      <div class="input-field center">
-        <button class="btn-small">Add</button>
-      </div>
-    </form>
-  </div>
-
-
-
 // adicionar nova receita
 const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
