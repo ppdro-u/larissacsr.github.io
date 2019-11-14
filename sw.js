@@ -1,7 +1,7 @@
 //recursos basicos necessarios pro site funcionar
 const staticCacheName = 'site-static-v3';
 //recursos que sao armazenados na medida que o usuario ira utilizar o sistema
-const dynamicCacheName = 'site-dynamic-v2';
+const dynamicCacheName = 'site-dynamic-v3';
 //aqui ficam os endereços de requisicao para recursos que você quer fazer cache
 const assets = [
     '/',
