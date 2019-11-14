@@ -33,7 +33,7 @@ form.addEventListener('submit', evt => {
         endereco_imagem: 'teste.com',
     };
 
-    db.collection('sobremesas').add(recipe)
+    db.collection('sobremesas').add(sobremesa)
         .catch(err => console.log(err));
 
     //reseta o formulario
