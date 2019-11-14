@@ -27,9 +27,9 @@ const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
     evt.preventDefault();
     const sobremesa = {
-        nome: form.sobremesa-titulo.value,
-        descricao: form.sobremesa-descricao.value,
-        link: form.sobremesa-link.value,
+        nome: form.sobremesaTitulo.value,
+        descricao: form.sobremesaDescricao.value,
+        link: form.sobremesaLink.value,
         endereco_imagem: 'teste.com',
     };
 
@@ -37,8 +37,8 @@ form.addEventListener('submit', evt => {
         .catch(err => console.log(err));
 
     //reseta o formulario
-    form.sobremesa-titulo.value = '';
-    form.sobremesa-descricao.value = '';
-    form.sobremesa-link.value = '';
+    form.sobremesaTitulo.value = '';
+    form.sobremesaDescricao.value = '';
+    form.sobremesaLink.value = '';
 
 });
