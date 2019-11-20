@@ -1,18 +1,19 @@
+// essa funcao seleciona o row (que esta no index)
+// para depois desenhar todos os cards la
 const sobremesas = document.querySelector('.sobremesas');
 
 document.addEventListener('DOMContentLoaded', function() {
+	// menus laterais 
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {edge:'left'});
 
-	// formulario de adicionar sobremesa
+	// formulario para adicionar sobremesa
 	const forms = document.querySelectorAll('.side-form');
 	var instances2 = M.Sidenav.init(forms, {edge:'right'});
 });
 
-// $('#textarea1').val('Novo Texto');
-// M.textareaAutoResize($('#textarea1'));
-
-const renderRecipe = (data, id) => {
+//funcao para desenhar o card da receita na tela
+const desenhaCard = (data, id) => {
 
     const html = `
   <div class="col s12 m6 l3 sobremesa" data-id="${id}">

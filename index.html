@@ -30,9 +30,9 @@
 <body style="background-color: #D32E5EFF;">
     <nav style="background-color: #AE0E36FF;">
         <div class="nav-wrapper">
-            <a href="./index.html" class="brand-logo">Des Bonbons</a>
+            <a href="./index.html" class="brand-logo">Bonbons</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
+                <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
                 <li>
@@ -52,101 +52,43 @@
             <a href="pages/contato.html">Contato</a>
         </li>
     </ul>
-    <!-- adicionei a classe sobremesa e sobremesaImg, sobremesaTitulo, sobremesaDescricao, sobremesaLink-->
-    <div class="container-fluid">
-      <!-- AQUI adicionou sobremesas -->
-        <div class="row sobremesas">
-
-            <!-- aqui começa o template da sobremesa -->
-            <!-- <div class="col s12 m6 l3 sobremesa">
-                <div class="card" style="background-color: #A59C94FF;">
-                    <div class="card-image sobremesaImg">
-                        <img src="img/brownito.jpg">
-                        <span class="card-title sobremesaTitulo">Brownie</span>
-                    </div>
-                    <div class="card-content sobremesaDescricao">
-                        <p>Chocolate Meio-Amargo e Castanha de Caju</p>
-                    </div>
-                    <div class="card-action">
-                        <a style="color: #AE0E36FF;" class="sobremesaLink" href="#">Saiba mais</a>
-                    </div>
-                    <div class="sobremesa-deletar">
-                        <i class="material-icons">delete_outline</i>
-                    </div>
-                </div>
-            </div> -->
-            <!-- aqui termina o template da sobremesa -->
-
-            <!-- <div class="col s12 m6 l3">
-                <div class="card" style="background-color: #A59C94FF;">
-                    <div class="card-image">
-                        <img src="img/Red-Velvet-Cake-8.jpg">
-                        <span class="card-title">Red Velvet</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Bolo de chocolate com cobertura de Buttercream</p>
-                    </div>
-                    <div class="card-action">
-                        <a style="color: #AE0E36FF;" href="#">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l3">
-                <div class="card" style="background-color: #A59C94FF;">
-                    <div class="card-image">
-                        <img src="img/Cheesecake.jpg">
-                        <span class="card-title">Cheesecake</span>
-                    </div>
-                    <div class="card-content">
-                        <p>It's a piece of Cheese...cake!</p>
-                    </div>
-                    <div class="card-action">
-                        <a style="color: #AE0E36FF;" href="#">Saiba mais</a>
-                    </div>
-                </div>
-            </div> -->
-        </div><!-- esse é o fim do row -->
+    <div class="container-fluid"><!-- inicio container -->
+        <div class="row sobremesas"><!-- inicio row-->
+            
+        </div><!-- fim do row -->
     </div><!-- fim do container-->
-    
-   <div class="center">
-    <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
-      <i class="material-icons">add</i>
-    </a>
-  </div>
-
-    <!-- adicionei a classe sobremesa e sobremesaImg, , , -->
-
-    <!-- side nav adiciona sobremesa-->
-  <div id="side-form" class="sidenav side-form">
-    <form class="adiciona-sobremesa container section">
-      <h6 >Nova Sobremesa</h6>
-      <div class="divider"></div>
-      <div class="input-field">
-        <input placeholder="ex. Brownie com Doce de leite" id="sobremesaTitulo" type="text" class="validate">
-        <label for="sobremesaTitulo">Título da Sobremesa</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="Massa de chocolate meio-amargo e doce de leite argentino" id="sobremesaDescricao" type="text" class="validate">
-        <label for="sobremesaDescricao">Descrição da Sobremesa</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="Coloque aqui um link que fale da sobremesa" id="sobremesaLink" type="text" class="validate">
-        <label for="sobremesaLink">Link da Sobremesa</label>
-      </div>
-      <div class="input-field center">
-        <button class="btn-small">Adicionar</button>
-      </div>
-    </form>
-  </div>
-
-
+    <div class="center">
+        <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    <div id="side-form" class="sidenav side-form">
+        <!-- formulario para adicionar sobremesas-->
+        <form class="adiciona-sobremesa container section">
+            <h6>Nova Sobremesa</h6>
+            <div class="divider"></div>
+            <div class="input-field">
+                <input placeholder="ex. Brownie com Doce de leite" id="sobremesaTitulo" type="text" class="validate">
+                <label for="sobremesaTitulo">Título da Sobremesa</label>
+            </div>
+            <div class="input-field">
+                <input placeholder="Massa de chocolate meio-amargo e doce de leite argentino" id="sobremesaDescricao" type="text" class="validate">
+                <label for="sobremesaDescricao">Descrição da Sobremesa</label>
+            </div>
+            <div class="input-field">
+                <input placeholder="Coloque aqui um link que fale da sobremesa" id="sobremesaLink" type="text" class="validate">
+                <label for="sobremesaLink">Link da Sobremesa</label>
+            </div>
+            <div class="input-field center">
+                <button class="btn-small">Adicionar</button>
+            </div>
+        </form>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-<!--aqui!!-->
-    
-    <!-- verificar se está na posição correta -->
     <script>
-    // Your web app's Firebase configuration
+    // Configuracao do Firebase para o seu aplicativo
+    // Esta parte é diferente para cada aplicativo. NÃO COPIAR!
     var firebaseConfig = {
         apiKey: "AIzaSyDGlxdWY0E3PdT6u050TJDTzHJ7UiFErGg",
         authDomain: "des-bonbons-dcc35.firebaseapp.com",
@@ -156,22 +98,13 @@
         messagingSenderId: "972950448934",
         appId: "1:972950448934:web:db59a364fff753dbd22fe7"
     };
-    // Initialize Firebase
+    // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore(); 
-
+    const db = firebase.firestore();
     </script>
-
     <script type="text/javascript" src="./js/app.js"></script>
     <script type="text/javascript" src="./js/db.js"></script>
     <script type="text/javascript" src="./js/ui.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-

@@ -12,17 +12,17 @@ db.enablePersistence()
 
 // real-time listener que verifica as mudanças que ocorrem
 db.collection('sobremesas').onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(change => {
-        if (change.type === 'added') {
-            renderRecipe(change.doc.data(), change.doc.id);
+    snapshot.docChanges().forEach(mudanca => {
+        if (mudanca.type === 'added') {
+            desenhaCard(mudanca.doc.data(), mudanca.doc.id);
         }
-        if (change.type === 'removed') {
+        if (mudanca.type === 'removed') {
             // remover da pagina tambem
         }
     });
 });
 
-// adicionar nova receita
+// adicionar nova sobremesa
 const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
     evt.preventDefault();
