@@ -20,7 +20,28 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
+    <style type="text/css">
+    /* label color */
+    .input-field label {
+        color: #000;
+    }
+
+    /* label focus color */
+    .input-field input[type=text]:focus+label {
+        color: #000;
+    }
+
+    /* label underline focus color */
+    .input-field input[type=text]:focus {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 1px 0 0 #000;
+    }
+
+    /* icon prefix focus color */
+    .input-field .prefix.active {
+        color: #000;
+    }
+    </style>
 </head>
 
 <body style="background-color: #A59C94FF; color: black;">
