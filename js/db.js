@@ -27,7 +27,7 @@ db.collection('sobremesas').onSnapshot(snapshot => {
 const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
     evt.preventDefault();
-    var  teste = document.getElementBy("fileButton").files[0].path;
+    var  teste = document.getElementById("fileButton").files[0].path;
     console.log(teste);
 
     const sobremesa = {
