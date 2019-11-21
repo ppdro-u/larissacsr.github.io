@@ -12,11 +12,11 @@ db.enablePersistence()
 
 // real-time listener que verifica as mudanças que ocorrem
 db.collection('sobremesas').onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(mudanca => {
-        if (mudanca.type === 'added') {
-            desenhaCard(mudanca.doc.data(), mudanca.doc.id);
+    snapshot.docChanges().forEach(change => {
+        if (change.type === 'added') {
+            desenhaCard(change.doc.data(), change.doc.id);
         }
-        if (mudanca.type === 'removed') {
+        if (change.type === 'removed') {
             // remover da pagina tambem
         }
     });
