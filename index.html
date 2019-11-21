@@ -123,8 +123,7 @@
     // Evento que monitora os eventos do botao de upload
     fileButton.addEventListener('change', function(e) {
         // obter arquivo
-        var file = e.target.files[0].path;
-        console.log(file);
+        var file = e.target.files[0];
 
         // Create the file metadata
         var metadata = {
@@ -132,7 +131,7 @@
         };
         var storageRef = firebase.storage().ref();
 
-        var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
+        var uploadTask = storageRef.child('images/' + file.path).put(file, metadata);
 
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
             function(snapshot) {
