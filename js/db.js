@@ -27,13 +27,14 @@ db.collection('sobremesas').onSnapshot(snapshot => {
 const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
     evt.preventDefault();
-    console.log(document.getElementBy("fileButton").files[0].path);
+    var  teste = document.getElementBy("fileButton").files[0].path;
+    console.log(teste);
 
     const sobremesa = {
         nome: form.sobremesaTitulo.value,
         descricao: form.sobremesaDescricao.value,
         link: form.sobremesaLink.value,
-        endereco_imagem: form.sobremesaArquivo.value
+        endereco_imagem: teste
     };
 
     db.collection('sobremesas').add(sobremesa)
