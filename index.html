@@ -118,7 +118,6 @@
     var uploader = document.getElementById('uploader');
     var fileButton = document.getElementById('fileButton');
 
-
     // Evento que monitora os eventos do botao de upload
     fileButton.addEventListener('change', function (e) {
         // obter arquivo
@@ -136,15 +135,10 @@
                 var percentage = (snapshot.bytesTransferred/snapshot.totalBytes) * 100;
                 uploader.value = percentage;
             },
-
             function error(err) {
-                // body...
+            },
+            function complete(argument){
             }
-
-            function function_name(argument) {
-                // body...
-            }
-
         );
     });
     </script>
