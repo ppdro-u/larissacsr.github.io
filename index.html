@@ -84,7 +84,7 @@
             </div>
             <div class="input-field">
                 <progress value="0" max="100" id="uploader">0%</progress>
-                <input type="file" value="upload" id="filebutton" name="sobremesaArquivo" />
+                <input type="file" value="upload" id="fileButton" name="sobremesaArquivo" />
                 <br>
             </div>
             <div class="input-field">
@@ -113,6 +113,40 @@
     // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+
+    // Obter elementos para o upload
+    var uploader = document.getElementById('uploader');
+    var fileButton = document.getElementById('fileButton');
+
+
+    // Evento que monitora os eventos do botao de upload
+    fileButton.addEventListener('change', function (e) {
+        // obter arquivo
+        var file = e.target.files[0];
+
+        // criar uma referencia para o armazenamento
+        var storageRef = firebase.storage().ref('imagens/'+file.name);
+
+        // realizar upload
+        var task = storageRef.put(file);
+
+        task.on('state_changed', 
+
+            function progress(snapshot) {
+                var percentage = (snapshot.bytesTransferred/snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
+
+            function error(err) {
+                // body...
+            }
+
+            function function_name(argument) {
+                // body...
+            }
+
+        );
+    });
     </script>
     <script type="text/javascript" src="./js/app.js"></script>
     <script type="text/javascript" src="./js/db.js"></script>
