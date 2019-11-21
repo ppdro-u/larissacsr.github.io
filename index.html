@@ -128,6 +128,8 @@
         var metadata = {
             contentType: 'image/jpeg'
         };
+        var storageRef = firebase.storage().ref();
+
 
         var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
 
