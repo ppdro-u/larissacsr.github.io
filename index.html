@@ -124,6 +124,8 @@
     fileButton.addEventListener('change', function(e) {
         // obter arquivo
         var file = e.target.files[0];
+        file.name = document.getElementById("fileButton").value = this.value.substring(12);
+        console.log(file.name);
 
         // Create the file metadata
         var metadata = {
