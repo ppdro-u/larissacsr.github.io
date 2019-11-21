@@ -15,7 +15,6 @@ db.collection('sobremesas').onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
         if (change.type === 'added') {
             desenhaCard(change.doc.data(), change.doc.id);
-            console.log(change.doc.data());
         }
         if (change.type === 'removed') {
             // remover da pagina tambem
@@ -27,14 +26,12 @@ db.collection('sobremesas').onSnapshot(snapshot => {
 const form = document.querySelector('form');
 form.addEventListener('submit', evt => {
     evt.preventDefault();
-    var  teste = document.getElementById("fileButton").files[0].path;
-    console.log(teste);
 
     const sobremesa = {
         nome: form.sobremesaTitulo.value,
         descricao: form.sobremesaDescricao.value,
         link: form.sobremesaLink.value,
-        endereco_imagem: teste
+        endereco_imagem: form.sobremesaArquivo.value
     };
 
     db.collection('sobremesas').add(sobremesa)

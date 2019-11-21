@@ -131,7 +131,7 @@
         };
         var storageRef = firebase.storage().ref();
 
-        var uploadTask = storageRef.child('images/' + file.path).put(file, metadata);
+        var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
 
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
             function(snapshot) {
