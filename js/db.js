@@ -15,6 +15,7 @@ db.collection('sobremesas').onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
         if (change.type === 'added') {
             desenhaCard(change.doc.data(), change.doc.id);
+      console.log(change.doc.data());
         }
         if (change.type === 'removed') {
             // remover da pagina tambem
