@@ -17,19 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
 const desenhaCard = (data, id) => {
 
     const html = `
-  <div class="col s12 m6 l3 sobremesa" data-id="${id}">
+  <div class="col s12 m6 l3 pesquisa_emprego" data-id="${id}">
 	    <div class="card" style="background-color: #A59C94FF;">
-		    <div class="card-image sobremesa-imagem">
+		    <div class="card-image pesquisa_emprego-imagem">
 	            <img src="images/${data.endereco_imagem}">
-	            <span class="card-title sobremesa-titulo">"${data.nome}"</span>
+	            <span class="card-title pesquisa_emprego-titulo">"${data.nome}"</span>
 	        </div>
-	        <div class="card-content sobremesa-descricao">
-	            <p>"${data.descricao}"</p>
+	        <div class="card-content pesquisa_emprego-descricao">
+	            <p>"${data.pesquisa_emprego}"</p>
 	        </div>
 	        <div class="card-action">
 		        <a style="color: #AE0E36FF;" class="sobremesa-link" href="${data.link}">Saiba mais</a>
 	        </div>
-	        <div class="sobremesa-deletar">
+	        <div class="Pesquisas feitas">
                 <i class="material-icons" data-id="${id}">delete_outline</i>
             </div>
 	    </div>
