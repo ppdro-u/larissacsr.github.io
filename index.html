@@ -24,8 +24,9 @@
     img {
         filter: brightness(0.85);
     }
+
     #uploader {
-        -webkit-appearence:none;
+        -webkit-appearence: none;
         appearance: none;
         width: 50%;
         margin-bottom: 10px;
@@ -58,10 +59,10 @@
             <a href="pages/contato.html">Contato</a>
         </li>
     </ul>
-    
-    <div class="container-fluid"><!-- inicio container -->
-        <div class="row sobremesas"><!-- inicio row-->
-            
+    <div class="container-fluid">
+        <!-- inicio container -->
+        <div class="row sobremesas">
+            <!-- inicio row-->
         </div><!-- fim do row -->
     </div><!-- fim do container-->
     <div class="center">
@@ -119,27 +120,48 @@
     var fileButton = document.getElementById('fileButton');
 
     // Evento que monitora os eventos do botao de upload
-    fileButton.addEventListener('change', function (e) {
+    fileButton.addEventListener('change', function(e) {
         // obter arquivo
         var file = e.target.files[0];
 
-        // criar uma referencia para o armazenamento
-        var storageRef = firebase.storage().ref('imagens/'+file.name);
+        // Create the file metadata
+        var metadata = {
+            contentType: 'image/jpeg'
+        };
 
-        // realizar upload
-        var task = storageRef.put(file);
+        var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
 
-        task.on('state_changed', 
-
-            function progress(snapshot) {
-                var percentage = (snapshot.bytesTransferred/snapshot.totalBytes) * 100;
-                uploader.value = percentage;
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+            function(snapshot) {
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                    case firebase.storage.TaskState.PAUSED: // or 'paused'
+                        console.log('Upload is paused');
+                        break;
+                    case firebase.storage.TaskState.RUNNING: // or 'running'
+                        console.log('Upload is running');
+                        break;
+                }
             },
-            function error(err) {
+            function(error) {
+
+                switch (error.code) {
+                    case 'storage/unauthorized':
+                        break;
+
+                    case 'storage/canceled':
+                        break;
+
+                    case 'storage/unknown':
+                        break;
+                }
             },
-            function complete(argument){
-            }
-        );
+            function() {
+                uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                    console.log('File available at', downloadURL);
+                });
+            });
     });
     </script>
     <script type="text/javascript" src="./js/app.js"></script>
