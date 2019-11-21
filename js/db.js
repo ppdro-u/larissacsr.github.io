@@ -30,7 +30,7 @@ form.addEventListener('submit', evt => {
         nome: form.sobremesaTitulo.value,
         descricao: form.sobremesaDescricao.value,
         link: form.sobremesaLink.value,
-        endereco_imagem: 'teste.com'
+        endereco_imagem: form.sobremesaArquivo.value
     };
 
     db.collection('sobremesas').add(sobremesa)
@@ -40,5 +40,6 @@ form.addEventListener('submit', evt => {
     form.sobremesaTitulo.value = '';
     form.sobremesaDescricao.value = '';
     form.sobremesaLink.value = '';
+    form.sobremesaArquivo.value = '';
 
 });

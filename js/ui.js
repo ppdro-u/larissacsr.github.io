@@ -13,13 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //funcao para desenhar o card da receita na tela
+//id, nome, descricao, link, endereco_imagem
 const desenhaCard = (data, id) => {
 
     const html = `
   <div class="col s12 m6 l3 sobremesa" data-id="${id}">
 	    <div class="card" style="background-color: #A59C94FF;">
 		    <div class="card-image sobremesa-imagem">
-	            <img src="../img/cup_cake-512.png">
+	            <img src="images/${data.endereco_imagem}">
 	            <span class="card-title sobremesa-titulo">"${data.nome}"</span>
 	        </div>
 	        <div class="card-content sobremesa-descricao">
